@@ -53,9 +53,13 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-nnoremap <C-e> :term <CR>
+nnoremap <C-b> :term <CR>
 nnoremap <C-s> :w <CR>
 nnoremap <C-p> :Files<CR>
+nnoremap <C-l> zg <CR>
+nnoremap <C-e> :q <CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 autocmd VimEnter * NERDTree
+set spelllang=en
+set spell
