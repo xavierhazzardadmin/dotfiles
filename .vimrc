@@ -1,24 +1,38 @@
 set nocompatible
+set hidden
 call plug#begin()
 " vim-plug plugins
 Plug 'preservim/NERDTree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'zxqfl/tabnine-vim'
+Plug 'mattn/emmet-vim'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+Plug 'mhinz/vim-startify'
+Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'ryanoasis/vim-devicons'
+Plug 'Raimondi/delimitMate'
+" Plug 'dense-analysis/ale'
 call plug#end()
+set number
 set ts=4 sw=4
 set splitbelow
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['eslint']
-let g:ale_fix_on_save = 1
-let g:prettier#config#tab_width = 'auto'
 nmap <F6> <Plug>(ale_fix)
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+
+set termguicolors
+
+let g:tokyonight_style = 'night'
+let g:tokyonight_enable_italic = 1
+
+colorscheme tokyonight
+let g:airline_theme = "tokyonight"
 
 function! s:swap_lines(n1, n2)
 	let line1 = getline(a:n1)
@@ -60,6 +74,12 @@ nnoremap <C-l> zg <CR>
 nnoremap <C-e> :q <CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
+nnoremap <S-Up> :m-2<CR>
+nnoremap <S-Down> :m+<CR>
+inoremap <S-Up> <Esc>:m-2<CR>
+inoremap <S-Down> <Esc>:m+<CR>
 autocmd VimEnter * NERDTree
+
+" autocomplete for parenthesis
 set spelllang=en
 set spell
