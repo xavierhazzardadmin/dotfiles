@@ -24,8 +24,7 @@ set ts=4 sw=4
 set splitbelow
 nmap <F6> <Plug>(ale_fix)
 
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-
+syntax enable
 set termguicolors
 
 let g:tokyonight_style = 'night'
@@ -78,8 +77,13 @@ nnoremap <S-Up> :m-2<CR>
 nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
+" map <C-t><up> :tabr<cr>
+" map <C-t><down> :tabl<cr>
+" map <C-t><left> :tabp<cr>
+" map <C-t><right> :tabn<cr>
 autocmd VimEnter * NERDTree
 
 " autocomplete for parenthesis
 set spelllang=en
 set spell
+set encoding=utf-8
