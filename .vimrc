@@ -22,6 +22,11 @@ call plug#end()
 set number
 set ts=4 sw=4
 set splitbelow
+filetype indent on
+set showmatch
+
+set incsearch
+set hlsearch
 nmap <F6> <Plug>(ale_fix)
 
 syntax enable
@@ -33,6 +38,8 @@ let g:tokyonight_enable_italic = 1
 colorscheme tokyonight
 let g:airline_theme = "tokyonight"
 
+
+let g:airline_powerline_fonts = 1
 function! s:swap_lines(n1, n2)
 	let line1 = getline(a:n1)
 	let line2 = getline(a:n2)
@@ -67,7 +74,7 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-b> :term <CR>
-nnoremap <C-s> :w <CR>
+nnoremap <C-A-s> :w <CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <C-l> zg <CR>
 nnoremap <C-e> :q <CR>
@@ -81,9 +88,10 @@ inoremap <S-Down> <Esc>:m+<CR>
 " map <C-t><down> :tabl<cr>
 " map <C-t><left> :tabp<cr>
 " map <C-t><right> :tabn<cr>
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 
 " autocomplete for parenthesis
+au! BufWritePost $MRVIMRC source %
 set spelllang=en
 set spell
 set encoding=utf-8

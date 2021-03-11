@@ -34,7 +34,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
@@ -130,8 +129,8 @@ export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias updot="git add .zshrc .vimrc"
+alias updot="git add .zshrc .vimrc .tmux.conf .p10k.zsh"
 
 # Fish syntax
 # # set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
-stty -ixon
+#stty -ixon
