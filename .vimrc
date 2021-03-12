@@ -19,13 +19,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
 Plug 'eslint/eslint'
 Plug 'dense-analysis/ale'
+call plug#end()
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['eslint']
 let g:ale_fix_on_save = 1
 let g:prettier#config#tab_width = 'auto'
-call plug#end()
 set number
 set ts=4 sw=4
 set softtabstop=4
