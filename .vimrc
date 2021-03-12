@@ -37,9 +37,7 @@ let g:tokyonight_enable_italic = 1
 
 colorscheme tokyonight
 let g:airline_theme = "tokyonight"
-
-
-let g:airline_powerline_fonts = 1
+let NERDTreeShowHidden=1
 function! s:swap_lines(n1, n2)
 	let line1 = getline(a:n1)
 	let line2 = getline(a:n2)
@@ -73,7 +71,7 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-nnoremap <C-b> :term <CR>
+" nnoremap <C-b> :term <CR>
 nnoremap <C-A-s> :w <CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <C-l> zg <CR>
