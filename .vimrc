@@ -3,7 +3,7 @@ set hidden
 call plug#begin()
 " vim-plug plugins
 Plug 'preservim/NERDTree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -17,10 +17,20 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
-" Plug 'dense-analysis/ale'
+Plug 'eslint/eslint'
+Plug 'dense-analysis/ale'
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['eslint']
+let g:ale_fix_on_save = 1
+let g:prettier#config#tab_width = 'auto'
 call plug#end()
 set number
 set ts=4 sw=4
+set softtabstop=4
+set expandtab
+set smarttab
 set splitbelow
 filetype indent on
 set showmatch
@@ -28,6 +38,7 @@ set showmatch
 set incsearch
 set hlsearch
 nmap <F6> <Plug>(ale_fix)
+
 
 syntax enable
 set termguicolors
@@ -93,3 +104,4 @@ au! BufWritePost $MRVIMRC source %
 set spelllang=en
 set spell
 set encoding=utf-8
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
