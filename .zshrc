@@ -125,8 +125,8 @@ function sysupdate {
 alias prettier="npm i --save-dev eslint eslint-config-prettier eslint-plugin-prettier"
 alias dev="cd ~/Dev/node"
 alias eslin="npm i --save-dev eslint-config-airbnb-base"
-alias pretty="cp ~/.prettierrc /"
-alias eslrc="cp ~/.eslintrc.json /"
+alias pretty="cp ~/.prettierrc ."
+alias eslrc="cp ~/.eslintrc.json ." 
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
