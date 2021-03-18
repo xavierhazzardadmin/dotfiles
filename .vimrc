@@ -6,6 +6,7 @@ Plug 'preservim/NERDTree'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'rhysd/vim-grammarous'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'zxqfl/tabnine-vim'
@@ -19,13 +20,26 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
 Plug 'eslint/eslint'
 Plug 'dense-analysis/ale'
+Plug 'vimsence/vimsence'
 call plug#end()
+
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['eslint']
 let g:ale_fix_on_save = 1
 let g:prettier#config#tab_width = 'auto'
+
+let g:vimsence_client_id = '385922547591675905'
+let g:vimsence_small_text = 'Vim'
+let g:vimsence_small_image = 'vim'
+let g:vimsence_editing_details = 'Editing: {}'
+let g:vimsence_editing_state = 'Working on: {}'
+let g:vimsence_file_explorer_text = 'In NERDTree'
+let g:vimsence_file_explorer_details = 'Looking for files'
+let g:vimsence_custom_icons = {'filetype': 'iconname'}
+
+
 set number
 set ts=4 sw=4
 set softtabstop=4
@@ -45,9 +59,9 @@ set termguicolors
 
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
-
-colorscheme tokyonight
 let g:airline_theme = "tokyonight"
+colorscheme tokyonight
+
 let NERDTreeShowHidden=1
 function! s:swap_lines(n1, n2)
 	let line1 = getline(a:n1)
