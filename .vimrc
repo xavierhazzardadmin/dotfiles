@@ -3,7 +3,6 @@ set hidden
 call plug#begin()
 " vim-plug plugins
 Plug 'preservim/NERDTree'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'rhysd/vim-grammarous'
@@ -30,16 +29,6 @@ let g:ale_fixers['javascript'] = ['eslint']
 let g:ale_fix_on_save = 1
 let g:prettier#config#tab_width = 'auto'
 
-let g:vimsence_client_id = '385922547591675905'
-let g:vimsence_small_text = 'Vim'
-let g:vimsence_small_image = 'vim'
-let g:vimsence_editing_details = 'Editing: {}'
-let g:vimsence_editing_state = 'Working on: {}'
-let g:vimsence_file_explorer_text = 'In NERDTree'
-let g:vimsence_file_explorer_details = 'Looking for files'
-let g:vimsence_custom_icons = {'filetype': 'iconname'}
-
-
 set number
 set ts=4 sw=4
 set softtabstop=4
@@ -51,7 +40,7 @@ set showmatch
 
 set incsearch
 set hlsearch
-nmap <F6> <Plug>(ale_fix)
+" nmap <F6> <Plug>(ale_fix)
 
 
 syntax enable
@@ -107,11 +96,6 @@ nnoremap <S-Up> :m-2<CR>
 nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
-" map <C-t><up> :tabr<cr>
-" map <C-t><down> :tabl<cr>
-" map <C-t><left> :tabp<cr>
-" map <C-t><right> :tabn<cr>
-" autocmd VimEnter * NERDTree
 
 " autocomplete for parenthesis
 au! BufWritePost $MRVIMRC source %
