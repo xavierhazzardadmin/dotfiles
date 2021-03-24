@@ -3,10 +3,10 @@ set hidden
 call plug#begin()
 " vim-plug plugins
 Plug 'preservim/NERDTree'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'yuezk/vim-js'
 Plug 'sheerun/vim-polyglot'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'rhysd/vim-grammarous'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'zxqfl/tabnine-vim'
@@ -21,12 +21,14 @@ Plug 'Raimondi/delimitMate'
 Plug 'eslint/eslint'
 Plug 'dense-analysis/ale'
 call plug#end()
+
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['eslint']
 let g:ale_fix_on_save = 1
 let g:prettier#config#tab_width = 'auto'
+
 set number
 set ts=4 sw=4
 set softtabstop=4
@@ -38,7 +40,7 @@ set showmatch
 
 set incsearch
 set hlsearch
-nmap <F6> <Plug>(ale_fix)
+" nmap <F6> <Plug>(ale_fix)
 
 
 " syntax enable
@@ -46,9 +48,9 @@ set termguicolors
 
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
-
-colorscheme tokyonight
 let g:airline_theme = "tokyonight"
+colorscheme tokyonight
+
 let NERDTreeShowHidden=1
 function! s:swap_lines(n1, n2)
 	let line1 = getline(a:n1)
@@ -94,11 +96,6 @@ nnoremap <S-Up> :m-2<CR>
 nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
-" map <C-t><up> :tabr<cr>
-" map <C-t><down> :tabl<cr>
-" map <C-t><left> :tabp<cr>
-" map <C-t><right> :tabn<cr>
-" autocmd VimEnter * NERDTree
 
 " autocomplete for parenthesis
 au! BufWritePost $MRVIMRC source %
