@@ -133,6 +133,10 @@ export NVM_DIR=~/.nvm
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias updot="git add .zshrc .vimrc .tmux.conf .p10k.zsh"
 
+alias stpr=mkdir
+
 # Fish syntax
 # # set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
 #stty -ixon
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

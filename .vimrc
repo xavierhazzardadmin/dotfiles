@@ -4,6 +4,7 @@ call plug#begin()
 " vim-plug plugins
 Plug 'preservim/NERDTree'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'yuezk/vim-js'
 Plug 'sheerun/vim-polyglot'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -40,7 +41,7 @@ set hlsearch
 nmap <F6> <Plug>(ale_fix)
 
 
-syntax enable
+" syntax enable
 set termguicolors
 
 let g:tokyonight_style = 'night'
