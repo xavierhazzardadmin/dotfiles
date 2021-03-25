@@ -3,6 +3,7 @@ set hidden
 call plug#begin()
 " vim-plug plugins
 Plug 'preservim/NERDTree'
+Plug 'yuezk/vim-js'
 Plug 'sheerun/vim-polyglot'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'rhysd/vim-grammarous'
@@ -17,8 +18,8 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
-" Plug 'eslint/eslint'
-" Plug 'dense-analysis/ale'
+Plug 'eslint/eslint'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 let g:ale_sign_error = '❌'
@@ -41,7 +42,7 @@ set hlsearch
 " nmap <F6> <Plug>(ale_fix)
 
 
-syntax enable
+" syntax enable
 set termguicolors
 
 let g:tokyonight_style = 'night'
