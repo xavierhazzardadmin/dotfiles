@@ -17,9 +17,8 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
-Plug 'eslint/eslint'
-Plug 'dense-analysis/ale'
-Plug 'vimsence/vimsence'
+" Plug 'eslint/eslint'
+" Plug 'dense-analysis/ale'
 call plug#end()
 
 let g:ale_sign_error = '❌'
@@ -37,7 +36,6 @@ set smarttab
 set splitbelow
 filetype indent on
 set showmatch
-
 set incsearch
 set hlsearch
 " nmap <F6> <Plug>(ale_fix)
