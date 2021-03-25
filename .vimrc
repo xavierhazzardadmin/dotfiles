@@ -19,7 +19,7 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
 Plug 'eslint/eslint'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 call plug#end()
 
 let g:ale_sign_error = '❌'
