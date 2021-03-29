@@ -37,7 +37,6 @@ set smarttab
 set splitbelow
 filetype indent on
 set showmatch
-
 set incsearch
 set hlsearch
 " nmap <F6> <Plug>(ale_fix)
