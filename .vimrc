@@ -97,6 +97,8 @@ nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
 
+
+set pastetoggle=<F3>
 " autocomplete for parenthesis
 au! BufWritePost $MRVIMRC source %
 set spelllang=en
