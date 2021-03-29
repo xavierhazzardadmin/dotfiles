@@ -19,13 +19,22 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
 Plug 'eslint/eslint'
-" Plug 'dense-analysis/ale'
+Plug 'othree/yajs.vim'
+Plug 'tpope/vim-commentary'
+Plug 'dense-analysis/ale'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['eslint']
+let g:ale_fixers = {
+  \    'javascript': ['eslint'],
+  \    'typescript': ['prettier', 'tslint'],
+  \    'vue': ['eslint'],
+  \    'scss': ['prettier'],
+  \    'html': ['prettier'],
+  \    'reason': ['refmt']
+\}
 let g:ale_fix_on_save = 1
 let g:prettier#config#tab_width = 'auto'
 
@@ -42,10 +51,12 @@ set hlsearch
 " nmap <F6> <Plug>(ale_fix)
 
 
-" syntax enable
+syntax enable
 set termguicolors
 
-let g:tokyonight_style = 'night'
+
+let g:jsx_ext_required = 1
+" let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 let g:airline_theme = "tokyonight"
 colorscheme tokyonight
@@ -95,9 +106,18 @@ nnoremap <S-Up> :m-2<CR>
 nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
-
+nnoremap ]r :ALENextWrap<CR>    
+nnoremap [r :ALEPreviousWrap<CR> 
+nnoremap <F5> mzgggqG`z
 " autocomplete for parenthesis
 au! BufWritePost $MRVIMRC source %
+" FORMATTERS
+au FileType javascript setlocal formatprg=prettier
+au FileType javascript.jsx setlocal formatprg=prettier
+au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+au FileType html setlocal formatprg=js-beautify\ --type\ html
+au FileType scss setlocal formatprg=prettier\ --parser\ css
+au FileType css setlocal formatprg=prettier\ --parser\ css
 set spelllang=en
 set spell
 set encoding=utf-8
