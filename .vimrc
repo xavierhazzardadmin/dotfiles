@@ -7,6 +7,13 @@ Plug 'yuezk/vim-js'
 Plug 'sheerun/vim-polyglot'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'rhysd/vim-grammarous'
+Plug 'neoclide/coc.nvim'
+Plug 'airblade/vim-gitgutter'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'scrooloose/nerdcommenter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'morhetz/gruvbox'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'zxqfl/tabnine-vim'
@@ -21,7 +28,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'eslint/eslint'
 Plug 'othree/yajs.vim'
 Plug 'tpope/vim-commentary'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
@@ -38,7 +45,27 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:prettier#config#tab_width = 'auto'
 
-set number
+
+
+let numbeDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+
+
+let g:NERDTreeGitStatusUseNerdFonts = 1
+let g:NERDTreegitStatusShowIgnored = 1
+let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
+let g:NERDTreeGitSTatusConcealBrackets = 1
+
 set ts=4 sw=4
 set softtabstop=4
 set expandtab
