@@ -61,6 +61,15 @@ let numbeDTreeGitStatusIndicatorMapCustom = {
                 \ }
 
 
+let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-pairs',
+    \ 'coc-tsserver',
+    \ 'coc-eslint',
+    \ 'coc-prettier',
+    \ 'coc-json',
+    \ ]
+
 let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreegitStatusShowIgnored = 1
 let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
