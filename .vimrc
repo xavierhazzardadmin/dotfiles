@@ -1,5 +1,6 @@
 set nocompatible
 set hidden
+
 call plug#begin()
 " vim-plug plugins
 Plug 'preservim/NERDTree'
@@ -7,7 +8,7 @@ Plug 'yuezk/vim-js'
 Plug 'sheerun/vim-polyglot'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'rhysd/vim-grammarous'
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'scrooloose/nerdcommenter'
@@ -74,6 +75,8 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreegitStatusShowIgnored = 1
 let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
 let g:NERDTreeGitSTatusConcealBrackets = 1
+let g:NERDTreeGitStatusShowClean = 1
+
 
 set ts=4 sw=4
 set softtabstop=4
