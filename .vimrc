@@ -4,9 +4,7 @@ set hidden
 call plug#begin()
 " vim-plug plugins
 Plug 'preservim/NERDTree'
-Plug 'yuezk/vim-js'
 Plug 'sheerun/vim-polyglot'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'rhysd/vim-grammarous'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
@@ -15,9 +13,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'zxqfl/tabnine-vim'
 Plug 'mattn/emmet-vim'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'vim-airline/vim-airline'
@@ -27,9 +25,8 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
 Plug 'eslint/eslint'
-Plug 'othree/yajs.vim'
+" Plug 'othree/yajs.vim'
 Plug 'tpope/vim-commentary'
-" Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
@@ -47,7 +44,6 @@ let g:ale_fix_on_save = 1
 let g:prettier#config#tab_width = 'auto'
 
 
-
 let numbeDTreeGitStatusIndicatorMapCustom = {
                 \ 'Modified'  :'✹',
                 \ 'Staged'    :'✚',
@@ -59,7 +55,7 @@ let numbeDTreeGitStatusIndicatorMapCustom = {
                 \ 'Ignored'   :'☒',
                 \ 'Clean'     :'✔︎',
                 \ 'Unknown'   :'?',
-                \ }
+\ }
 
 
 let g:coc_global_extensions = [
@@ -69,7 +65,7 @@ let g:coc_global_extensions = [
     \ 'coc-eslint',
     \ 'coc-prettier',
     \ 'coc-json',
-    \ ]
+\ ]
 
 let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreegitStatusShowIgnored = 1
@@ -87,7 +83,6 @@ filetype indent on
 set showmatch
 set incsearch
 set hlsearch
-" nmap <F6> <Plug>(ale_fix)
 
 
 syntax enable
@@ -95,7 +90,7 @@ set termguicolors
 
 
 let g:jsx_ext_required = 1
-" let g:tokyonight_style = 'night'
+let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 let g:airline_theme = "tokyonight"
 colorscheme tokyonight
@@ -134,7 +129,6 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-" nnoremap <C-b> :term <CR>
 nnoremap <C-A-s> :w <CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <C-l> zg <CR>
