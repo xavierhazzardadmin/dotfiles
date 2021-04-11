@@ -134,7 +134,7 @@ export NVM_DIR=~/.nvm
 alias updot="git add .zshrc .vimrc .tmux.conf .p10k.zsh .eslintrc .prettierrc"
 
 alias stpr=mkdir
-
+alias mongod="sudo mongod"
 # Fish syntax
 # # set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
 #stty -ixon
