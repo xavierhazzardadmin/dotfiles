@@ -139,12 +139,11 @@ nnoremap <S-Up> :m-2<CR>
 nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
-
+nnoremap <F10> :w <CR> 
 
 set pastetoggle=<F3>
 nnoremap ]r :ALENextWrap<CR>    
 nnoremap [r :ALEPreviousWrap<CR> 
-nnoremap <F5> mzgggqG`z
 " autocomplete for parenthesis
 au! BufWritePost $MRVIMRC source %
 " FORMATTERS
@@ -157,4 +156,34 @@ au FileType css setlocal formatprg=prettier\ --parser\ css
 set spelllang=en
 set spell
 set encoding=utf-8
+
+map gc :call Comment()<CR>
+map gC :call Uncomment()<CR>
+
+function! Comment()
+	let ft = &filetype
+	if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' || ft == 'python' || ft == 'perl'
+		silent s/^/\#/
+	elseif ft == 'javascript' || ft == 'c' || ft == 'cpp' || ft == 'java' || ft == 'objc' || ft == 'scala' || ft == 'go'
+		silent s:^:\/\/:g
+	elseif ft == 'tex'
+		silent s:^:%:g
+	elseif ft == 'vim'
+		silent s:^:\":g
+	endif
+endfunction
+
+function! Uncomment()
+	let ft = &filetype
+	if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' || ft == 'python' || ft == 'perl'
+		silent s/^\#//
+	elseif ft == 'javascript' || ft == 'c' || ft == 'cpp' || ft == 'java' || ft == 'objc' || ft == 'scala' || ft == 'go'
+		silent s:^\/\/::g
+	elseif ft == 'tex'
+		silent s:^%::g
+	elseif ft == 'vim'
+		silent s:^\"::g
+	endif
+endfunction
+
 command! -nargs=0 Prettier :CocCommand prettier.formatFile

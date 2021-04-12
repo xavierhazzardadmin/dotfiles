@@ -126,7 +126,10 @@ alias prettier="npm i --save-dev eslint eslint-config-prettier eslint-plugin-pre
 alias dev="cd ~/Dev/node"
 alias eslin="npm i --save-dev eslint-config-airbnb-base"
 alias pretty="cp ~/.prettierrc ."
-alias eslrc="cp ~/.eslintrc ." 
+alias eslrc="cp ~/.eslintrc ."
+alias saswatch="sass --watch source/styles/style.scss build/style.css"
+alias sasscomp="sass source/styles/style.scss build/style.css"
+
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
