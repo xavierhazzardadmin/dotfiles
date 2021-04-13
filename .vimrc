@@ -26,6 +26,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
 Plug 'eslint/eslint'
 " Plug 'othree/yajs.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
@@ -43,6 +44,7 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:prettier#config#tab_width = 'auto'
 
+let g:typescript_indent_disable = 1
 
 let numbeDTreeGitStatusIndicatorMapCustom = {
                 \ 'Modified'  :'✹',
@@ -157,33 +159,5 @@ set spelllang=en
 set spell
 set encoding=utf-8
 
-map gc :call Comment()<CR>
-map gC :call Uncomment()<CR>
-
-function! Comment()
-	let ft = &filetype
-	if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' || ft == 'python' || ft == 'perl'
-		silent s/^/\#/
-	elseif ft == 'javascript' || ft == 'c' || ft == 'cpp' || ft == 'java' || ft == 'objc' || ft == 'scala' || ft == 'go'
-		silent s:^:\/\/:g
-	elseif ft == 'tex'
-		silent s:^:%:g
-	elseif ft == 'vim'
-		silent s:^:\":g
-	endif
-endfunction
-
-function! Uncomment()
-	let ft = &filetype
-	if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' || ft == 'python' || ft == 'perl'
-		silent s/^\#//
-	elseif ft == 'javascript' || ft == 'c' || ft == 'cpp' || ft == 'java' || ft == 'objc' || ft == 'scala' || ft == 'go'
-		silent s:^\/\/::g
-	elseif ft == 'tex'
-		silent s:^%::g
-	elseif ft == 'vim'
-		silent s:^\"::g
-	endif
-endfunction
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile

@@ -134,7 +134,7 @@ export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias updot="git add .zshrc .vimrc .tmux.conf .p10k.zsh .eslintrc .prettierrc"
+alias updot="git add .zshrc .vimrc .tmux.conf .p10k.zsh .eslintrc .prettierrc .vim/coc-settings.json -f"
 
 alias stpr=mkdir
 alias mongod="sudo mongod"
