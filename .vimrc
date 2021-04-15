@@ -1,3 +1,5 @@
+let mapleader= "," " sets map leader to comma
+set timeoutlen=500 " sets timeout to 500ms
 set nocompatible
 set hidden
 
@@ -57,9 +59,12 @@ let g:coc_global_extensions = [
     \ 'coc-json',
 \ ]
 
-nmap <silent> <leader>dd <Plug>(coc-definition)
-nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+
+" NERDTree
 
 let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreegitStatusShowIgnored = 1
@@ -77,7 +82,7 @@ filetype indent on
 set showmatch
 set incsearch
 set hlsearch
-
+set number
 
 syntax enable
 set termguicolors

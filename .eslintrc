@@ -7,7 +7,6 @@
     "extends": ["airbnb-base"],
     "parserOptions": {
         "ecmaVersion": 12,
-        "project": "@typescript-eslint/parser"
     },
     "rules": {
         "semi": ["error", "always"],
