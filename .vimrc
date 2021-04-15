@@ -59,10 +59,37 @@ let g:coc_global_extensions = [
     \ 'coc-json',
 \ ]
 
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
 nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gr <Plug>(coc-references)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " NERDTree
 
@@ -71,6 +98,7 @@ let g:NERDTreegitStatusShowIgnored = 1
 let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
 let g:NERDTreeGitSTatusConcealBrackets = 1
 let g:NERDTreeGitStatusShowClean = 1
+
 
 
 set ts=4 sw=4
@@ -92,7 +120,7 @@ let g:jsx_ext_required = 1
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 let g:airline_theme = "tokyonight"
-colorscheme tokyonight
+colorscheme tokyonight 
 
 let NERDTreeShowHidden=1
 function! s:swap_lines(n1, n2)
@@ -141,8 +169,7 @@ inoremap <S-Down> <Esc>:m+<CR>
 nnoremap <F10> :w <CR> 
 
 set pastetoggle=<F3>
-nnoremap ]r :ALENextWrap<CR>    
-nnoremap [r :ALEPreviousWrap<CR> 
+
 " autocomplete for parenthesis
 au! BufWritePost $MRVIMRC source %
 " FORMATTERS
@@ -156,5 +183,6 @@ set spelllang=en
 set spell
 set encoding=utf-8
 
+filetype plugin on
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile

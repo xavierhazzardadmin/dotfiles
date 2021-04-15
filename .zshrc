@@ -132,6 +132,8 @@ alias pretty="cp ~/.prettierrc ."
 alias eslrc="cp ~/.eslintrc ."
 alias saswatch="sass --watch source/styles/style.scss build/style.css"
 alias sasscomp="sass source/styles/style.scss build/style.css"
+alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin"
+alias ts="cd ~/Dev/typescript"
 
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
