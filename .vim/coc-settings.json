@@ -4,11 +4,15 @@
     "suggest.echodocSupport": true,
     "suggest.maxCompleteItemCount": 20,
     "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx"],
-    "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
+    "eslint.filetypes": [ "javascript", "typescript" ],
     "diagnostic.errorSign": "❌",
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "‼",
-    "rpc.id": 385922547591675905,
-    "rpc.enabled": true,
-    "rpc.workspaceElapsedTime": true,
+    "tsserver.trace.server": "verbose",
+    "languageserver": {
+        "typescript": {
+            "trace.server": "verbose",
+            "filetypes": ["typescript", "typescriptreact"]
+        }
+    }
 }

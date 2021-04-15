@@ -125,7 +125,7 @@ function sysupdate {
 }
 
 alias prettier="npm i --save-dev eslint eslint-config-prettier eslint-plugin-prettier"
-alias dev="cd ~/Dev/node"
+alias dev="cd ~/Dev/"
 alias eslin="npm i --save-dev eslint-config-airbnb-base"
 alias pretty="cp ~/.prettierrc ."
 alias eslrc="cp ~/.eslintrc ."

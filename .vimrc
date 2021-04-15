@@ -31,18 +31,6 @@ Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
-let g:ale_fixers = {
-  \    'javascript': ['eslint'],
-  \    'typescript': ['prettier', 'tslint'],
-  \    'vue': ['eslint'],
-  \    'scss': ['prettier'],
-  \    'html': ['prettier'],
-  \    'reason': ['refmt']
-\}
-let g:ale_fix_on_save = 1
-let g:prettier#config#tab_width = 'auto'
 
 let g:typescript_indent_disable = 1
 
@@ -59,7 +47,7 @@ let numbeDTreeGitStatusIndicatorMapCustom = {
                 \ 'Unknown'   :'?',
 \ }
 
-
+" conquer of completion
 let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-pairs',
@@ -68,6 +56,10 @@ let g:coc_global_extensions = [
     \ 'coc-prettier',
     \ 'coc-json',
 \ ]
+
+nmap <silent> <leader>dd <Plug>(coc-definition)
+nmap <silent> <leader>dr <Plug>(coc-references)
+nmap <silent> <leader>dj <Plug>(coc-implementation)
 
 let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreegitStatusShowIgnored = 1
