@@ -124,9 +124,10 @@ function sysupdate {
 	sudo apt dist-upgrade
 }
 
+# Web Development
 alias prettier="npm i --save-dev eslint eslint-config-prettier eslint-plugin-prettier"
 alias dev="cd ~/Dev/"
-alias eslin="npm i --save-dev eslint-config-airbnb-base"
+alias eslin="npm i --save-dev eslint-config-airbnb-base && cp ~/.eslintrc ."
 alias pretty="cp ~/.prettierrc ."
 alias eslrc="cp ~/.eslintrc ."
 alias saswatch="sass --watch source/styles/style.scss build/style.css"

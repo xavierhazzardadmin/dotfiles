@@ -4,15 +4,14 @@
     "suggest.echodocSupport": true,
     "suggest.maxCompleteItemCount": 20,
     "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx"],
-    "eslint.filetypes": [ "javascript", "typescript" ],
+    "eslint.run": "onType",
+    "eslint.probe": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
+    "eslint.trace.server": "verbose",
+    "eslint.packageManager": "npm",
+    "eslint.lintTask.options": [".", "--ext", ".ts"],
+    "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
     "diagnostic.errorSign": "❌",
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "‼",
     "tsserver.trace.server": "verbose",
-    "languageserver": {
-        "typescript": {
-            "trace.server": "verbose",
-            "filetypes": ["typescript", "typescriptreact"]
-        }
-    }
 }
