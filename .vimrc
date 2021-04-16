@@ -6,7 +6,7 @@ set hidden
 call plug#begin()
 " vim-plug plugins
 Plug 'preservim/NERDTree'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'rhysd/vim-grammarous'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
@@ -26,17 +26,25 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
-Plug 'eslint/eslint'
 " Plug 'othree/yajs.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'   }
 call plug#end()
 
 
+" markdwon-preview 
+let g:mkdp_auto_start = 1
+let g:mkdp_refresh_slow = 1
+
+
+" yats
 let g:typescript_indent_disable = 1
 
-let numbeDTreeGitStatusIndicatorMapCustom = {
+
+" NERDTree 
+let NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Modified'  :'✹',
                 \ 'Staged'    :'✚',
                 \ 'Untracked' :'✭',
@@ -48,6 +56,12 @@ let numbeDTreeGitStatusIndicatorMapCustom = {
                 \ 'Clean'     :'✔︎',
                 \ 'Unknown'   :'?',
 \ }
+
+let g:NERDTreeGitStatusUseNerdFonts = 1
+let g:NERDTreegitStatusShowIgnored = 1
+let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
+let g:NERDTreeGitSTatusConcealBrackets = 1
+let g:NERDTreeGitStatusShowClean = 1
 
 " conquer of completion
 let g:coc_global_extensions = [
@@ -91,15 +105,8 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" NERDTree
 
-let g:NERDTreeGitStatusUseNerdFonts = 1
-let g:NERDTreegitStatusShowIgnored = 1
-let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
-let g:NERDTreeGitSTatusConcealBrackets = 1
-let g:NERDTreeGitStatusShowClean = 1
-
-
+" VIM stuff
 
 set ts=4 sw=4
 set softtabstop=4
@@ -112,9 +119,17 @@ set incsearch
 set hlsearch
 set number
 
+
+set spelllang=en
+set spell
+set encoding=utf-8
+
+filetype plugin on
+
 syntax enable
 set termguicolors
 
+" Colours, I still don't fully understand this lol.
 
 let g:jsx_ext_required = 1
 let g:tokyonight_style = 'night'
@@ -150,24 +165,34 @@ function! s:swap_down()
 	exec n + 1
 endfunction
 
-noremap <silent> <c-s-up> :call <SID>swap_up()<CR>
-noremap <silent> <c-s-down> :call <SID>swap_down()<CR>
+" NERDTree stuff
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-nnoremap <C-A-s> :w <CR>
+
+" Fuzzy finding
 nnoremap <C-p> :Files<CR>
+
+" TBH I have not clue what this is
 nnoremap <C-l> zg <CR>
 nnoremap <C-e> :q <CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
+
+" Moves line up
 nnoremap <S-Up> :m-2<CR>
-nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
+" Moves line down
+nnoremap <S-Down> :m+<CR>
 inoremap <S-Down> <Esc>:m+<CR>
+" Saves the file
 nnoremap <F10> :w <CR> 
 
+" Format file
+nnoremap <F7> :CocCommand prettier.formatFile <CR>
+
+"Vim has a weird past so press this to make it normal
 set pastetoggle=<F3>
 
 " autocomplete for parenthesis
@@ -177,12 +202,10 @@ au FileType javascript setlocal formatprg=prettier
 au FileType javascript.jsx setlocal formatprg=prettier
 au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 au FileType html setlocal formatprg=js-beautify\ --type\ html
+au FileType ejs setlocal formatprg=prettier\ --parser\ html
+au FileType jst setlocal formatprg=prettier\ --parser\ html
 au FileType scss setlocal formatprg=prettier\ --parser\ css
 au FileType css setlocal formatprg=prettier\ --parser\ css
-set spelllang=en
-set spell
-set encoding=utf-8
 
-filetype plugin on
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
