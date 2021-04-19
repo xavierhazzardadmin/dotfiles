@@ -201,7 +201,7 @@ au! BufWritePost $MRVIMRC source %
 au FileType javascript setlocal formatprg=prettier
 au FileType javascript.jsx setlocal formatprg=prettier
 au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-au FileType html setlocal formatprg=js-beautify\ --type\ html
+au FileType html setlocal formatprg=prettier\ --type\ html
 au FileType ejs setlocal formatprg=prettier\ --parser\ html
 au FileType jst setlocal formatprg=prettier\ --parser\ html
 au FileType scss setlocal formatprg=prettier\ --parser\ css
