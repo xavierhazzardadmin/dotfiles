@@ -6,7 +6,7 @@ set hidden
 call plug#begin()
 " vim-plug plugins
 Plug 'preservim/NERDTree'
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 Plug 'rhysd/vim-grammarous'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
@@ -127,43 +127,17 @@ set encoding=utf-8
 filetype plugin on
 
 syntax enable
-set termguicolors
 
 " Colours, I still don't fully understand this lol.
 
+set termguicolors
 let g:jsx_ext_required = 1
-let g:tokyonight_style = 'night'
+let g:tokyonight_style = 'storm'
 let g:tokyonight_enable_italic = 1
 let g:airline_theme = "tokyonight"
 colorscheme tokyonight 
 
 let NERDTreeShowHidden=1
-function! s:swap_lines(n1, n2)
-	let line1 = getline(a:n1)
-	let line2 = getline(a:n2)
-	call setline(a:n1, line2)
-	call setline(a:n2, line1)
-endfunction
-
-function! s:swap_up()
-    let n = line('.')
-    if n == 1
-	    return
-	endif
-
-	call s:swap_lines(n, n - 1)
-	exec n - 1
-endfunction
-
-function! s:swap_down()
-    let n = line('.')
-    if n == line('$')
-        return
-    endif
-	
-	call s:swap_lines(n, n + 1)
-	exec n + 1
-endfunction
 
 " NERDTree stuff
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -188,6 +162,7 @@ nnoremap <S-Down> :m+<CR>
 inoremap <S-Down> <Esc>:m+<CR>
 " Saves the file
 nnoremap <F10> :w <CR> 
+inoremap <F10> <Esc>:w<CR>
 
 " Format file
 nnoremap <F7> :CocCommand prettier.formatFile <CR>
