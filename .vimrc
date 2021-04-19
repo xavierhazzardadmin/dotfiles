@@ -13,8 +13,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'scrooloose/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'morhetz/gruvbox'
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -26,22 +24,19 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
-" Plug 'othree/yajs.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'   }
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 
-" markdwon-preview 
-let g:mkdp_auto_start = 1
-let g:mkdp_refresh_slow = 1
 
-
-" yats
+" vim-typescript
 let g:typescript_indent_disable = 1
 
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
 
 " NERDTree 
 let NERDTreeGitStatusIndicatorMapCustom = {
@@ -62,6 +57,7 @@ let g:NERDTreegitStatusShowIgnored = 1
 let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
 let g:NERDTreeGitSTatusConcealBrackets = 1
 let g:NERDTreeGitStatusShowClean = 1
+let NERDTreeShowHidden=1
 
 " conquer of completion
 let g:coc_global_extensions = [
@@ -80,8 +76,10 @@ nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gr <Plug>(coc-references)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
-
-" Use <c-space> to trigger completion.
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)" Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Remap for rename current word
@@ -118,15 +116,20 @@ set showmatch
 set incsearch
 set hlsearch
 set number
-
-
 set spelllang=en
 set spell
 set encoding=utf-8
-
+set autoindent
+set showcmd
+set number relativenumber
+set regexpengine=1
+set ruler
+set showmatch
 filetype plugin on
-
 syntax enable
+
+" Source Vim configuration file and install plugins
+nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
 
 " Colours, I still don't fully understand this lol.
 
@@ -136,8 +139,6 @@ let g:tokyonight_style = 'storm'
 let g:tokyonight_enable_italic = 1
 let g:airline_theme = "tokyonight"
 colorscheme tokyonight 
-
-let NERDTreeShowHidden=1
 
 " NERDTree stuff
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -181,6 +182,5 @@ au FileType ejs setlocal formatprg=prettier\ --parser\ html
 au FileType jst setlocal formatprg=prettier\ --parser\ html
 au FileType scss setlocal formatprg=prettier\ --parser\ css
 au FileType css setlocal formatprg=prettier\ --parser\ css
-
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
