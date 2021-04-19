@@ -5,29 +5,50 @@ set hidden
 
 call plug#begin()
 " vim-plug plugins
+" NERDTree for file management
 Plug 'preservim/NERDTree'
+"IDK
 Plug 'sheerun/vim-polyglot'
+" Spelling for vim
 Plug 'rhysd/vim-grammarous'
+" Conquer of Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Shows each lines git status
 Plug 'airblade/vim-gitgutter'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'scrooloose/nerdcommenter'
+" vim with tmux
 Plug 'christoomey/vim-tmux-navigator'
+" Shows which files have been edited
 Plug 'Xuyuanp/nerdtree-git-plugin'
+" Colorscheme
+Plug 'morhetz/gruvbox'
+" fuzzy finding
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Emmet for vim
 Plug 'mattn/emmet-vim'
-Plug 'ghifarit53/tokyonight-vim'
+" Plug 'ghifarit53/tokyonight-vim'
+" airline to connect to powerline
 Plug 'vim-airline/vim-airline'
+" fuzzy finding
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+" Starting message and options 
 Plug 'mhinz/vim-startify'
+"IDK
 Plug 'vim-ctrlspace/vim-ctrlspace'
+" NERDTree icons
 Plug 'ryanoasis/vim-devicons'
+" I also don't know
 Plug 'Raimondi/delimitMate'
+" Syntax highlighting for vim
 Plug 'leafgarland/typescript-vim'
+" Commenting for vim
 Plug 'tpope/vim-commentary'
+" Auto add the other side to bracket
 Plug 'jiangmiao/auto-pairs'
+" Syntax highlighting for JSX and TSX
 Plug 'maxmellon/vim-jsx-pretty'
+" haven't worked out yet
+Plug 'mbbill/undotree'
 call plug#end()
 
 
@@ -58,6 +79,9 @@ let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
 let g:NERDTreeGitSTatusConcealBrackets = 1
 let g:NERDTreeGitStatusShowClean = 1
 let NERDTreeShowHidden=1
+
+"UndoTree
+nnoremap <F5> :UndotreeToggle<CR>
 
 " conquer of completion
 let g:coc_global_extensions = [
@@ -120,13 +144,21 @@ set spelllang=en
 set spell
 set encoding=utf-8
 set autoindent
+set smartindent
+set noswapfile
+set nobackup
+set smartcase
+set noerrorbells
+set undodir=~/.vim/undodir
+set undofile
 set showcmd
 set number relativenumber
 set regexpengine=1
 set ruler
+set list
 set showmatch
 filetype plugin on
-syntax enable
+syntax on
 
 " Source Vim configuration file and install plugins
 nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
@@ -134,11 +166,20 @@ nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
 " Colours, I still don't fully understand this lol.
 
 set termguicolors
-let g:jsx_ext_required = 1
-let g:tokyonight_style = 'storm'
-let g:tokyonight_enable_italic = 1
-let g:airline_theme = "tokyonight"
-colorscheme tokyonight 
+" let g:jsx_ext_required = 1
+" let g:tokyonight_style = 'storm'
+" let g:tokyonight_enable_italic = 1
+" let g:airline_theme = "tokyonight"
+" colorscheme tokyonight 
+
+" gruvbox
+let g:gruvbox_italic=1
+let g:gruvbox_bold = 1
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_invert_signs=1
+let g:gruvbox_invert_indent_guides=1
+colorscheme gruvbox
+set background=dark
 
 " NERDTree stuff
 nnoremap <leader>n :NERDTreeFocus<CR>
