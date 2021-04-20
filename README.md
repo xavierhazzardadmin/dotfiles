@@ -22,7 +22,7 @@ A few other honorable mentions are:
   repo, taken that one is initialized in the folder.
 
 * `vim-commentary` which makes it easy for my to write comments in
-    my code now matter the language is. 
+    my code no matter the language is. 
 
 * `ctrl-p.vim` which allows me to fuzzy file search whilst still in a vim window and not have to worry about saving my work as it stays in the buffer. 
 
@@ -42,6 +42,8 @@ for instance
 ```
 :CocInstall coc-eslint coc-prettier coc-tsserver
 ```
+
+Or you can install these globally and then it will install automatically, see vimrc for more details
 
 then hit enter and wait whilst it installs them.
 
