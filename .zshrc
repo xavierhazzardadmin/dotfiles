@@ -83,7 +83,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -132,13 +132,14 @@ alias pretty="cp ~/.prettierrc ."
 alias eslrc="cp ~/.eslintrc ."
 alias saswatch="sass --watch source/styles/style.scss build/style.css"
 alias sasscomp="sass source/styles/style.scss build/style.css"
-alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin"
-alias ts="cd ~/Dev/typescript"
+alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-base && cp ~/.tsrc/.eslintrc ."
+alias ts="cd ~/Dev/typescript && clear"
+alias expinit="npm i express && npm i --save-dev @types/express"
 
 function tsinit {
     npm init -y
     tsc --init
-    eslin
+    tslin
     pretty
 }
 
@@ -150,6 +151,7 @@ alias updot="git add .zshrc .vimrc .tmux.conf .p10k.zsh .eslintrc .prettierrc .v
 
 alias stpr=mkdir
 alias mongod="sudo mongod"
+# alias docker="sudo docker"
 # Fish syntax
 # # set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
 #stty -ixon

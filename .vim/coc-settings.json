@@ -3,7 +3,7 @@
     "eslint.autoFixOnSave": true,
     "suggest.echodocSupport": true,
     "suggest.maxCompleteItemCount": 20,
-    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx", "jst"],
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx", "jst", "ejs", "yaml"],
     "eslint.run": "onType",
     "eslint.probe": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
     "eslint.trace.server": "verbose",
