@@ -209,6 +209,15 @@ inoremap <F10> <Esc>:w<CR>
 " Format file
 nnoremap <F7> :CocCommand prettier.formatFile <CR>
 
+let g:tmux_navigator_no_mappings = 1
+
+" navigate split screens easily
+" configuration for tmux_navigator
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
 "Vim has a weird past so press this to make it normal
 set pastetoggle=<F3>
 

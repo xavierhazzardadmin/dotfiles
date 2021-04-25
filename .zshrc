@@ -83,7 +83,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,6 +130,7 @@ alias dev="cd ~/Dev/"
 alias eslin="npm i --save-dev eslint-config-airbnb-base && cp ~/.eslintrc ."
 alias pretty="cp ~/.prettierrc ."
 alias eslrc="cp ~/.eslintrc ."
+alias tsrc="cp ~/.tsrc/.eslintrc ."
 alias saswatch="sass --watch source/styles/style.scss build/style.css"
 alias sasscomp="sass source/styles/style.scss build/style.css"
 alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-base && cp ~/.tsrc/.eslintrc ."
@@ -141,6 +142,9 @@ function tsinit {
     tsc --init
     tslin
     pretty
+    prettier
+    touch index.ts
+    vim index.ts
 }
 
 export NVM_DIR=~/.nvm
