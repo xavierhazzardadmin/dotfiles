@@ -78,6 +78,7 @@ let g:NERDTreegitStatusShowIgnored = 1
 let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
 let g:NERDTreeGitSTatusConcealBrackets = 1
 let g:NERDTreeGitStatusShowClean = 1
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
 let NERDTreeShowHidden=1
 
 "UndoTree
