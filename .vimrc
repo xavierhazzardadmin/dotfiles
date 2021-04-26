@@ -49,6 +49,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'maxmellon/vim-jsx-pretty'
 " haven't worked out yet
 Plug 'mbbill/undotree'
+" Easy tool for strings
+Plug 'tpope/vim-surround'
 call plug#end()
 
 
