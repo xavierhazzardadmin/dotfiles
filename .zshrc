@@ -133,7 +133,7 @@ alias eslrc="cp ~/.eslintrc ."
 alias tsrc="cp ~/.tsrc/.eslintrc ."
 alias saswatch="sass --watch source/styles/style.scss build/style.css"
 alias sasscomp="sass source/styles/style.scss build/style.css"
-alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-base && cp ~/.tsrc/.eslintrc ."
+alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-base typescript && cp ~/.tsrc/.eslintrc ."
 alias ts="cd ~/Dev/typescript && clear"
 alias expinit="npm i express && npm i --save-dev @types/express"
 
