@@ -147,6 +147,12 @@ function tsinit {
     vim index.ts
 }
 
+function gfl {
+    git init
+    git flow init
+    clear
+}
+
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
