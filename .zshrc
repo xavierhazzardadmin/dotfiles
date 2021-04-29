@@ -136,6 +136,7 @@ alias sasscomp="sass source/styles/style.scss build/style.css"
 alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-base typescript && cp ~/.tsrc/.eslintrc ."
 alias ts="cd ~/Dev/typescript && clear"
 alias expinit="npm i express && npm i --save-dev @types/express"
+alias typew="tsc -w"
 
 function tsinit {
     npm init -y
