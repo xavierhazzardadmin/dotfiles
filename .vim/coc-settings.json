@@ -13,5 +13,5 @@
     "diagnostic.errorSign": "❌",
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "‼",
-    "tsserver.trace.server": "verbose",
+    "tsserver.trace.server": "verbose"
 }
