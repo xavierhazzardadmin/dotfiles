@@ -25,7 +25,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )xxxxxx
 # Set list of themes to pick from when loading at random
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 # Uncomment the following line to use case-sensitive completion.
@@ -148,6 +148,36 @@ function tsinit {
     vim index.ts
 }
 
+function gfl {
+    git init
+    git flow init
+    clear
+}
+
+exp () {
+    mkdir "$1"
+    cd "$1"
+    cp ~/.tsrc/express.ts .
+    expinit
+    tsinit
+    prettier
+    pretty
+    echo "Happy Hacking!"
+}
+
+reactT () {
+    ts
+    create-react-app "$1" --typescript
+    cd "$1"
+    mv src/index.js src/index.ts
+}
+
+function fixHistory {
+    mv .zsh_history .zsh_history_bad
+    strings .zsh_history_bad > .zsh_history
+    fc -R .zsh_history
+}
+
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -167,3 +197,4 @@ then
 fi 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
