@@ -3,7 +3,7 @@
     "eslint.autoFixOnSave": true,
     "suggest.echodocSupport": true,
     "suggest.maxCompleteItemCount": 20,
-    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx", "jst", "ejs", "yaml"],
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx", "jst", "ejs", "yaml", "html", "css"],
     "eslint.run": "onSave",
     "eslint.probe": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
     "eslint.trace.server": "verbose",
@@ -13,5 +13,8 @@
     "diagnostic.errorSign": "❌",
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "‼",
-    "tsserver.trace.server": "verbose"
+    "tsserver.trace.server": "verbose",
+    "vetur.format.enable": true,
+    "vetur.format.defaultFormatter.html": "prettier",
+    "vetur.format.defaultFormatter.css": "prettier" 
 }

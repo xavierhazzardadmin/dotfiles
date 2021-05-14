@@ -159,6 +159,7 @@ set number relativenumber
 set regexpengine=1
 set ruler
 set list
+set vb t_vb=
 set showmatch
 filetype plugin on
 syntax on
@@ -199,15 +200,32 @@ nnoremap <C-e> :q <CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 
-" Moves line up
-nnoremap <S-Up> :m-2<CR>
-inoremap <S-Up> <Esc>:m-2<CR>
-" Moves line down
-nnoremap <S-Down> :m+<CR>
-inoremap <S-Down> <Esc>:m+<CR>
+" " Moves line up
+" nnoremap <S-Up> :m-2<CR>
+" inoremap <S-Up> <Esc>:m-2<CR>
+" " Moves line down
+" nnoremap <S-Down> :m+<CR>
+" inoremap <S-Down> <Esc>:m+<CR>
 " Saves the file
+" Normal mode
+nnoremap <C-Down> :m .+1<CR>==
+nnoremap <C-Up> :m .-2<CR>==
+
+" Insert mode
+inoremap <C-Down> <ESC>:m .+1<CR>==gi
+inoremap <C-Up> <ESC>:m .-2<CR>==gi
+
+" Visual mode
+vnoremap <C-Down> :m '>+1<CR>gv=gv
+vnoremap <C-Up> :m '<-2<CR>gv=gv
+
 nnoremap <F10> :w <CR> 
 inoremap <F10> <Esc>:w<CR>
+
+" open terminal
+nnoremap <C-w>cal :term <CR>
+vnoremap <C-w> <ESC> :term <CR>
+inoremap <C-w> <ESC> :term <CR>
 
 " Format file
 nnoremap <F7> :CocCommand prettier.formatFile <CR>
@@ -231,6 +249,7 @@ au FileType javascript setlocal formatprg=prettier
 au FileType javascript.jsx setlocal formatprg=prettier
 au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 au FileType html setlocal formatprg=prettier\ --type\ html
+au FileType html setlocal formatprg=prettier\ --parser\ html
 au FileType ejs setlocal formatprg=prettier\ --parser\ html
 au FileType jst setlocal formatprg=prettier\ --parser\ html
 au FileType scss setlocal formatprg=prettier\ --parser\ css

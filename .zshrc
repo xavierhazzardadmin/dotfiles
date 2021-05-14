@@ -124,20 +124,32 @@ function sysupdate {
 	sudo apt dist-upgrade
 }
 
-# Web Development
+#  Web Development.
 alias prettier="npm i --save-dev eslint eslint-config-prettier eslint-plugin-prettier"
+#  Changes directory to main development environment.
 alias dev="cd ~/Dev/"
+#  Installs the eslint packages I use for javascript projects.
 alias eslin="npm i --save-dev eslint-config-airbnb-base && cp ~/.eslintrc ."
+#  Copies main prettier config file to current working directory.
 alias pretty="cp ~/.prettierrc ."
+#  Copies main eslint config file to current working directory.
 alias eslrc="cp ~/.eslintrc ."
+#  Copies eslint config file specially made for typescript projects into current working directory.
 alias tsrc="cp ~/.tsrc/.eslintrc ."
+#  Starts sass in watch mode.
 alias saswatch="sass --watch source/styles/style.scss build/style.css"
+#  Compiles sass files from source directory to build directory.
 alias sasscomp="sass source/styles/style.scss build/style.css"
+#  Installs the eslint packages for typescript in the current working directory.
 alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-base typescript && cp ~/.tsrc/.eslintrc ."
+#  Changes directory to typescript folder then clears the terminal output.
 alias ts="cd ~/Dev/typescript && clear"
+#  Initializes an express app inside the current folder.
 alias expinit="npm i express && npm i --save-dev @types/express"
+#  Starts the typescript compiler in watch mode.
 alias typew="tsc -w"
 
+#  Initializes the current working directory as a typescript project.
 function tsinit {
     npm init -y
     tsc --init
@@ -148,12 +160,34 @@ function tsinit {
     vim index.ts
 }
 
-function gfl {
+#  Initializes the current working directory as a typescript project without opening index in vim
+function tsini {
+    npm init -y
+    tsc --init
+    tslin
+    pretty
+    prettier
+    touch index.ts
+    vim index.ts
+}
+
+#  Creates a new folder and initializes it as a typecript project.
+tsi () {
+    mkdir "$1"
+    cd "$1"
+    tsinit
+}
+
+#  Creates a new directory and initializes it as a git repository using the git flow workflow.
+gfl () {
+    mkdir "$1"
+    cd "$1"
     git init
     git flow init
     clear
 }
 
+#  Creates a new express project with the given name.
 exp () {
     mkdir "$1"
     cd "$1"
@@ -165,6 +199,7 @@ exp () {
     echo "Happy Hacking!"
 }
 
+#  Creates a new React App with the given name, using the typescript template.
 reactT () {
     ts
     create-react-app "$1" --typescript
@@ -172,6 +207,7 @@ reactT () {
     mv src/index.js src/index.ts
 }
 
+#  Fixes the bash history when a BSOD occurs.
 function fixHistory {
     mv .zsh_history .zsh_history_bad
     strings .zsh_history_bad > .zsh_history
