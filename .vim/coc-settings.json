@@ -4,7 +4,7 @@
     "suggest.echodocSupport": true,
     "suggest.maxCompleteItemCount": 20,
     "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx", "jst", "ejs", "yaml"],
-    "eslint.run": "onType",
+    "eslint.run": "onSave",
     "eslint.probe": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
     "eslint.trace.server": "verbose",
     "eslint.packageManager": "npm",

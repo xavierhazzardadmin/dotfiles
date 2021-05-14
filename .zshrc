@@ -161,4 +161,9 @@ alias mongod="sudo mongod"
 # # set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
 #stty -ixon
 
+if [[ -t 0 && $- = *i* ]]
+then
+    stty -ixon
+fi 
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
