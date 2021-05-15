@@ -211,6 +211,11 @@ reactT () {
     cd "$1"
 }
 
+add () {
+    mkdir "$1"
+    cd "$1"
+}
+
 #  Fixes the bash history when a BSOD occurs.
 function fixHistory {
     mv .zsh_history .zsh_history_bad

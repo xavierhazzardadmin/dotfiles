@@ -223,9 +223,23 @@ nnoremap <F10> :w <CR>
 inoremap <F10> <Esc>:w<CR>
 
 " open terminal
-nnoremap <C-w>cal :term <CR>
-vnoremap <C-w> <ESC> :term <CR>
-inoremap <C-w> <ESC> :term <CR>
+nnoremap <C-y>cal :term <CR>
+vnoremap <C-y> <ESC> :term <CR>
+inoremap <C-y> <ESC> :term <CR>
+
+"  Open CocDiagnostics
+nnoremap <C-d> :CocDiagnostics <CR>
+inoremap <C-d> <ESC> :CocDiagnostics <CR>
+vnoremap <C-d> <ESC> :CocDiagnostics <CR>
+
+"  Start live compile
+nnoremap <C-w> :CocCommand tsserver.watchBuild <CR>
+inoremap <C-w> <ESC> :CocCommand tsserver.watchBuild <CR>
+vnoremap <C-w> <ESC> :CocCommand tsserver.watchBuild<CR>
+" Duplicate line below
+nnoremap <A-d> :t. <CR>==
+inoremap <A-d> <Esc>:t. <CR>==gi
+vnoremap <A-d> :t$ <CR>gv=gv
 
 " Format file
 nnoremap <F7> :CocCommand prettier.formatFile <CR>
