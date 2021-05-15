@@ -200,11 +200,15 @@ exp () {
 }
 
 #  Creates a new React App with the given name, using the typescript template.
-reactT () {
+reactTS () {
     ts
-    create-react-app "$1" --typescript
+    npx create-react-app "$1" --template typescript
     cd "$1"
-    mv src/index.js src/index.ts
+}
+
+reactT () {
+    npx create-react-app "$1" --template typescript
+    cd "$1"
 }
 
 #  Fixes the bash history when a BSOD occurs.

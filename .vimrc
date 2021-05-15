@@ -255,6 +255,11 @@ au FileType jst setlocal formatprg=prettier\ --parser\ html
 au FileType scss setlocal formatprg=prettier\ --parser\ css
 au FileType css setlocal formatprg=prettier\ --parser\ css
 
+augroup SyntaxSettings
+    autocmd!
+    autocmd BufNewfile,BufRead *.tsx set filetype=typescript.tsx
+augroup END
+
 let s:clip = '/mnt/c/Windows/System32/clip.exe'
 if executable(s:clip)
     augroup WSLYank

@@ -9,7 +9,7 @@
     "eslint.trace.server": "verbose",
     "eslint.packageManager": "npm",
     "eslint.lintTask.options": [".", "--ext", ".ts"],
-    "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
+    "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact", "typescript.tsx", "javascript.jsx"],
     "diagnostic.errorSign": "❌",
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "‼",
