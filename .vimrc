@@ -1,67 +1,73 @@
-let mapleader= "," " sets map leader to comma
-set timeoutlen=500 " sets timeout to 500ms
+let mapleader= "," "  sets map leader to comma
+set timeoutlen=500 "  sets timeout to 500ms
 set nocompatible
 set hidden
 
 call plug#begin()
-" vim-plug plugins
-" NERDTree for file management
+"  vim-plug plugins
+"  NERDTree for file management
 Plug 'preservim/NERDTree'
-"IDK
+" IDK
 Plug 'sheerun/vim-polyglot'
-" Spelling for vim
+"  Spelling for vim
 Plug 'rhysd/vim-grammarous'
-" Conquer of Completion
+"  Conquer of Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Shows each lines git status
+"  Shows each lines git status
 Plug 'airblade/vim-gitgutter'
-" vim with tmux
+"  vim with tmux
 Plug 'christoomey/vim-tmux-navigator'
-" Shows which files have been edited
+"  Shows which files have been edited
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Colorscheme
+"  Colorscheme
 Plug 'morhetz/gruvbox'
-" fuzzy finding
+"  fuzzy finding for easy access to files
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Emmet for vim
+"  Emmet for vim
 Plug 'mattn/emmet-vim'
-" Plug 'ghifarit53/tokyonight-vim'
-" airline to connect to powerline
+"  Plug 'ghifarit53/tokyonight-vim'
+"  airline to connect to powerline
 Plug 'vim-airline/vim-airline'
-" fuzzy finding
+"  fuzzy finding
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
-" Starting message and options 
+"  Starting message and options 
 Plug 'mhinz/vim-startify'
-"IDK
+"  IDK
 Plug 'vim-ctrlspace/vim-ctrlspace'
-" NERDTree icons
+"  NERDTree icons
 Plug 'ryanoasis/vim-devicons'
-" I also don't know
+"  I also don't know
 Plug 'Raimondi/delimitMate'
-" Syntax highlighting for vim
+"  Syntax highlighting for vim
 Plug 'leafgarland/typescript-vim'
-" Commenting for vim
+"  Commenting for vim
 Plug 'tpope/vim-commentary'
-" Auto add the other side to bracket
+"  Auto add the other side to bracket
 Plug 'jiangmiao/auto-pairs'
-" Syntax highlighting for JSX and TSX
+"  Syntax highlighting for JSX and TSX
 Plug 'maxmellon/vim-jsx-pretty'
-" haven't worked out yet
+"  haven't worked out yet
 Plug 'mbbill/undotree'
-" Easy tool for strings
+"  Easy tool for strings
 Plug 'tpope/vim-surround'
+"  Syntax highlighting for EJS files
+Plug 'nikvdp/ejs-syntax'
+"  Formatter for EJS and JST
+Plug 'briancollins/vim-jst'
+"  Narrow Rejoin
+Plug 'chrisbra/NrrwRgn'
 call plug#end()
 
 
 
-" vim-typescript
+"  vim-typescript
 let g:typescript_indent_disable = 1
 
-" vim-javascript
+"  vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
-" NERDTree 
+"  NERDTree 
 let NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Modified'  :'✹',
                 \ 'Staged'    :'✚',
@@ -83,10 +89,10 @@ let g:NERDTreeGitStatusShowClean = 1
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
 let NERDTreeShowHidden=1
 
-"UndoTree
+"  UndoTree
 nnoremap <F5> :UndotreeToggle<CR>
 
-" conquer of completion
+"  conquer of completion
 let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-pairs',
@@ -103,31 +109,31 @@ nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gr <Plug>(coc-references)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
-" Remap keys for applying codeAction to the current line.
+"  Remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
+"  Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)" Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Remap for rename current word
+"  Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
 
-" Using CocList
-" Show all diagnostics
+"  Using CocList
+"  Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
+"  Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
+"  Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
+"  Find symbol of current document
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
+"  Search workspace symbols
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
+"  Do default action for next item.
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
+"  Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
+"  Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
@@ -187,7 +193,7 @@ set background=dark
 
 " NERDTree stuff
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
@@ -244,6 +250,10 @@ vnoremap <A-d> :t$ <CR>gv=gv
 " Format file
 nnoremap <F7> :CocCommand prettier.formatFile <CR>
 
+"  Open Narrow Rejoin window 
+nnoremap <C-n> :NR <CR>
+inoremap <C-n> <ESC> :NR <CR>
+vnoremap <C-n> <ESC> :NR <CR>
 let g:tmux_navigator_no_mappings = 1
 
 " navigate split screens easily
@@ -253,7 +263,7 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
-"Vim has a weird past so press this to make it normal
+"  Vim has a weird paste so press this to make it normal
 set pastetoggle=<F3>
 
 " autocomplete for parenthesis
@@ -272,6 +282,7 @@ au FileType css setlocal formatprg=prettier\ --parser\ css
 augroup SyntaxSettings
     autocmd!
     autocmd BufNewfile,BufRead *.tsx set filetype=typescript.tsx
+    autocmd BufNewfile,BufRead *.ejs set filetype=ejs
 augroup END
 
 let s:clip = '/mnt/c/Windows/System32/clip.exe'
