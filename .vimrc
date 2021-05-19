@@ -51,6 +51,13 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mbbill/undotree'
 " Easy tool for strings
 Plug 'tpope/vim-surround'
+"  Snippets
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
+"  Plugin for Git
+Plug 'tpope/vim-fugitive'
+"  Multiple cursors plugin
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 
@@ -233,9 +240,9 @@ inoremap <C-d> <ESC> :CocDiagnostics <CR>
 vnoremap <C-d> <ESC> :CocDiagnostics <CR>
 
 "  Start live compile
-nnoremap <C-w> :CocCommand tsserver.watchBuild <CR>
-inoremap <C-w> <ESC> :CocCommand tsserver.watchBuild <CR>
-vnoremap <C-w> <ESC> :CocCommand tsserver.watchBuild<CR>
+nnoremap <C-W> :CocCommand tsserver.watchBuild <CR>
+inoremap <C-W> <ESC> :CocCommand tsserver.watchBuild <CR>
+vnoremap <C-W> <ESC> :CocCommand tsserver.watchBuild<CR>
 " Duplicate line below
 nnoremap <A-d> :t. <CR>==
 inoremap <A-d> <Esc>:t. <CR>==gi
