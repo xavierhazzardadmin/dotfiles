@@ -301,3 +301,8 @@ if executable(s:clip)
 end
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -bang -bar -nargs=* ggpush execute 'Dispatch<bang> -dir=' .
+      \ fnameescape(FugitiveGitDir()) 'git push' <q-args>
+command! -bang -bar -nargs=* gcam execute 'Dispatch<bang> -dir=' .
+      \ fnameescape(FugitiveGitDir()) 'git commit' <q-args>
+
