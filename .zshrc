@@ -145,7 +145,7 @@ alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript
 #  Changes directory to typescript folder then clears the terminal output.
 alias ts="cd ~/Dev/typescript && clear"
 #  Initializes an express app inside the current folder.
-alias expinit="npm i express && npm i --save-dev @types/express"
+alias expinit="npm i express && npm i --save-dev @types/express @type/node"
 #  Starts the typescript compiler in watch mode.
 alias typew="tsc -w"
 
@@ -167,8 +167,6 @@ function tsini {
     tslin
     pretty
     prettier
-    touch index.ts
-    vim index.ts
 }
 
 #  Creates a new folder and initializes it as a typecript project.
@@ -192,8 +190,9 @@ exp () {
     mkdir "$1"
     cd "$1"
     cp ~/.tsrc/express.ts .
+    mv expres.ts index.ts
     expinit
-    tsinit
+    tsini
     prettier
     pretty
     echo "Happy Hacking!"
