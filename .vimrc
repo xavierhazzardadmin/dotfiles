@@ -29,6 +29,7 @@ Plug 'mattn/emmet-vim'
 "  Plug 'ghifarit53/tokyonight-vim'
 "  airline to connect to powerline
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 "  fuzzy finding
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
 "  Starting message and options 
@@ -41,6 +42,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'
 "  Syntax highlighting for vim
 Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 "  Commenting for vim
 Plug 'tpope/vim-commentary'
 "  Auto add the other side to bracket
@@ -64,6 +66,13 @@ Plug 'nikvdp/ejs-syntax'
 Plug 'briancollins/vim-jst'
 "  Narrow Rejoin
 Plug 'chrisbra/NrrwRgn'
+"  Auto Close for HTML and JSX
+Plug 'alvan/vim-closetag'
+" Go Plugin
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'vim-syntastic/syntastic'
+Plug 'preservim/tagbar'
+Plug 'dgryski/vim-godef'
 call plug#end()
 
 
@@ -95,6 +104,13 @@ let g:NERDTreeGitSTatusConcealBrackets = 1
 let g:NERDTreeGitStatusShowClean = 1
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
 let NERDTreeShowHidden=1
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='base16_spacemacs'
+
+" GoLang
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
 
 "  UndoTree
 nnoremap <F5> :UndotreeToggle<CR>
@@ -174,8 +190,13 @@ set ruler
 set list
 set vb t_vb=
 set showmatch
+set autowrite
 filetype plugin on
 syntax on
+
+set signcolumn=number
+
+
 
 " Source Vim configuration file and install plugins
 nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
@@ -197,6 +218,7 @@ let g:gruvbox_invert_signs=1
 let g:gruvbox_invert_indent_guides=1
 colorscheme gruvbox
 set background=dark
+
 
 " NERDTree stuff
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -236,7 +258,7 @@ nnoremap <F10> :w <CR>
 inoremap <F10> <Esc>:w<CR>
 
 " open terminal
-nnoremap <C-y>cal :term <CR>
+nnoremap <C-S-y>:term <CR>
 vnoremap <C-y> <ESC> :term <CR>
 inoremap <C-y> <ESC> :term <CR>
 
@@ -245,10 +267,10 @@ nnoremap <C-d> :CocDiagnostics <CR>
 inoremap <C-d> <ESC> :CocDiagnostics <CR>
 vnoremap <C-d> <ESC> :CocDiagnostics <CR>
 
-"  Start live compile
-nnoremap <C-W> :CocCommand tsserver.watchBuild <CR>
-inoremap <C-W> <ESC> :CocCommand tsserver.watchBuild <CR>
-vnoremap <C-W> <ESC> :CocCommand tsserver.watchBuild<CR>
+"  Run Go module
+nnoremap <C-S-R> :GoRun <CR>
+inoremap <C-S-R> <ESC> :GoRun <CR>
+vnoremap <C-S-R> <ESC> :GoRun <CR>
 " Duplicate line below
 nnoremap <A-d> :t. <CR>==
 inoremap <A-d> <Esc>:t. <CR>==gi
@@ -269,6 +291,46 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.ts,*.tsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+"
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
 
 "  Vim has a weird paste so press this to make it normal
 set pastetoggle=<F3>
@@ -292,6 +354,12 @@ augroup SyntaxSettings
     autocmd BufNewfile,BufRead *.ejs set filetype=ejs
 augroup END
 
+
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+autocmd BufWritePost *.go :GoBuild
+
+
 let s:clip = '/mnt/c/Windows/System32/clip.exe'
 if executable(s:clip)
     augroup WSLYank
@@ -300,9 +368,11 @@ if executable(s:clip)
     augroup END
 end
 
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-command! -bang -bar -nargs=* ggpush execute 'Dispatch<bang> -dir=' .
+command! -bang -bar -nargs=* Ggpush execute 'Dispatch<bang> -dir=' .
       \ fnameescape(FugitiveGitDir()) 'git push' <q-args>
-command! -bang -bar -nargs=* gcam execute 'Dispatch<bang> -dir=' .
+command! -bang -bar -nargs=* Gcam execute 'Dispatch<bang> -dir=' .
       \ fnameescape(FugitiveGitDir()) 'git commit' <q-args>
 

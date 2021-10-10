@@ -11,12 +11,16 @@ fi
 #cd /home/xavierhazzardadmin/Dev
 # Path to your oh-my-zsh installation.
 export ZSH="/home/xavierhazzardadmin/.oh-my-zsh"
-
+export GOPATH="$HOME/GoLang" # or any directory to put your Go code
+export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
+
+
 #
 # Set list of themes to pick from when loading at random
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
@@ -83,7 +87,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -141,13 +145,15 @@ alias saswatch="sass --watch source/styles/style.scss build/style.css"
 #  Compiles sass files from source directory to build directory.
 alias sasscomp="sass source/styles/style.scss build/style.css"
 #  Installs the eslint packages for typescript in the current working directory.
-alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-base typescript && cp ~/.tsrc/.eslintrc ."
+alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-base eslint-plugin-prettier typescript && cp ~/.tsrc/.eslintrc ."
 #  Changes directory to typescript folder then clears the terminal output.
 alias ts="cd ~/Dev/typescript && clear"
 #  Initializes an express app inside the current folder.
 alias expinit="npm i express && npm i --save-dev @types/express @type/node"
 #  Starts the typescript compiler in watch mode.
 alias typew="tsc -w"
+#  Open tsconfig of the current dir
+alias tsconfig="vim tsconfig.json"
 
 #  Initializes the current working directory as a typescript project.
 function tsinit {
@@ -215,6 +221,8 @@ add () {
     cd "$1"
 }
 
+alias next="cd ~/Dev/nextjs"
+
 #  Fixes the bash history when a BSOD occurs.
 function fixHistory {
     mv .zsh_history .zsh_history_bad
@@ -231,14 +239,17 @@ alias updot="git add .zshrc .vimrc .tmux.conf .p10k.zsh .eslintrc .prettierrc .v
 alias stpr=mkdir
 alias mongod="sudo mongod"
 # alias docker="sudo docker"
-# Fish syntax
-# # set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
-#stty -ixon
+alias vp="git push origin develop && git push origin main"
 
-if [[ -t 0 && $- = *i* ]]
-then
-    stty -ixon
-fi 
+alias gf="git flow"
+
+alias jeddals="cd ~/Dev/jeddals-site/"
+
+alias ars="cd ~/Dev/go/Arsenal"
+
+#  GoLang aliases
+alias gop="cd ~/Dev/go"
+alias gbo="go build ."
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
