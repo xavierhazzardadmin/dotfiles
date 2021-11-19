@@ -1,6 +1,4 @@
-let mapleader= "," "  sets map leader to comma
-set timeoutlen=500 "  sets timeout to 500ms
-set nocompatible
+let mapleader= "," "  sets map leader to commai set timeoutlen=500 "  sets timeout to 500ms set nocompatible
 set hidden
 
 call plug#begin()
@@ -73,6 +71,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vim-syntastic/syntastic'
 Plug 'preservim/tagbar'
 Plug 'dgryski/vim-godef'
+" Plug 'zxqfl/tabnine-vim'
 call plug#end()
 
 
@@ -111,6 +110,9 @@ let g:airline_theme='base16_spacemacs'
 " GoLang
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
+
+let g:go_addtags_transform = "camelcase"
+
 
 "  UndoTree
 nnoremap <F5> :UndotreeToggle<CR>
@@ -262,6 +264,9 @@ nnoremap <C-S-y>:term <CR>
 vnoremap <C-y> <ESC> :term <CR>
 inoremap <C-y> <ESC> :term <CR>
 
+nnoremap <F8>:GoAddTags <CR>
+vnoremap <F8> <ESC> :GoAddTags <CR>
+inoremap <F8> <ESC> :GoAddTags <CR>
 "  Open CocDiagnostics
 nnoremap <C-d> :CocDiagnostics <CR>
 inoremap <C-d> <ESC> :CocDiagnostics <CR>
@@ -332,8 +337,14 @@ let g:closetag_shortcut = '>'
 "
 let g:closetag_close_shortcut = '<leader>>'
 
+" Go
+let g:go_doc_popup_window = 1
+" au filetype go inoremap <buffer> . .<C-x><C-o>
+
 "  Vim has a weird paste so press this to make it normal
 set pastetoggle=<F3>
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " autocomplete for parenthesis
 au! BufWritePost $MRVIMRC source %

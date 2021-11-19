@@ -6,6 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+LD_LIBRARY_PATH=${prefix}/lib64/gcc/MACHINE/VERSION
+export LD_LIBRARY_PATH
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #cd /home/xavierhazzardadmin/Dev
@@ -13,6 +16,11 @@ fi
 export ZSH="/home/xavierhazzardadmin/.oh-my-zsh"
 export GOPATH="$HOME/GoLang" # or any directory to put your Go code
 export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
+export C_INCLUDE_PATH="~/include/"
+CC="clang"
+CFLAGS="-fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wshadow"
+LDLIBS="-lcrypt -lcs50 -lm"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -87,7 +95,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+export NVM_DIR=~/.nvm
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-completions golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,142 +125,19 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zup="source ~/.zshrc"
-alias rim="vim ~/.zshrc"
-alias veim="vim ~/.vimrc"
-alias c=clear
-alias cls=clear
-alias mon=nodemon
-alias ls="ls -al"
-alias apt="sudo apt"
-function sysupdate {
-	sudo apt update
-	sudo apt upgrade
-	sudo apt dist-upgrade
+
+timezsh() {
+    shell=${1-$SHELL}
+    for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
-#  Web Development.
-alias prettier="npm i --save-dev eslint eslint-config-prettier eslint-plugin-prettier"
-#  Changes directory to main development environment.
-alias dev="cd ~/Dev/"
-#  Installs the eslint packages I use for javascript projects.
-alias eslin="npm i --save-dev eslint-config-airbnb-base && cp ~/.eslintrc ."
-#  Copies main prettier config file to current working directory.
-alias pretty="cp ~/.prettierrc ."
-#  Copies main eslint config file to current working directory.
-alias eslrc="cp ~/.eslintrc ."
-#  Copies eslint config file specially made for typescript projects into current working directory.
-alias tsrc="cp ~/.tsrc/.eslintrc ."
-#  Starts sass in watch mode.
-alias saswatch="sass --watch source/styles/style.scss build/style.css"
-#  Compiles sass files from source directory to build directory.
-alias sasscomp="sass source/styles/style.scss build/style.css"
-#  Installs the eslint packages for typescript in the current working directory.
-alias tslin="npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-airbnb-base eslint-plugin-prettier typescript && cp ~/.tsrc/.eslintrc ."
-#  Changes directory to typescript folder then clears the terminal output.
-alias ts="cd ~/Dev/typescript && clear"
-#  Initializes an express app inside the current folder.
-alias expinit="npm i express && npm i --save-dev @types/express @type/node"
-#  Starts the typescript compiler in watch mode.
-alias typew="tsc -w"
-#  Open tsconfig of the current dir
-alias tsconfig="vim tsconfig.json"
 
-#  Initializes the current working directory as a typescript project.
-function tsinit {
-    npm init -y
-    tsc --init
-    tslin
-    pretty
-    prettier
-    touch index.ts
-    vim index.ts
-}
-
-#  Initializes the current working directory as a typescript project without opening index in vim
-function tsini {
-    npm init -y
-    tsc --init
-    tslin
-    pretty
-    prettier
-}
-
-#  Creates a new folder and initializes it as a typecript project.
-tsi () {
-    mkdir "$1"
-    cd "$1"
-    tsinit
-}
-
-#  Creates a new directory and initializes it as a git repository using the git flow workflow.
-gfl () {
-    mkdir "$1"
-    cd "$1"
-    git init
-    git flow init
-    clear
-}
-
-#  Creates a new express project with the given name.
-exp () {
-    mkdir "$1"
-    cd "$1"
-    cp ~/.tsrc/express.ts .
-    mv expres.ts index.ts
-    expinit
-    tsini
-    prettier
-    pretty
-    echo "Happy Hacking!"
-}
-
-#  Creates a new React App with the given name, using the typescript template.
-reactTS () {
-    ts
-    npx create-react-app "$1" --template typescript
-    cd "$1"
-}
-
-reactT () {
-    npx create-react-app "$1" --template typescript
-    cd "$1"
-}
-
-add () {
-    mkdir "$1"
-    cd "$1"
-}
-
-alias next="cd ~/Dev/nextjs"
-
-#  Fixes the bash history when a BSOD occurs.
-function fixHistory {
-    mv .zsh_history .zsh_history_bad
-    strings .zsh_history_bad > .zsh_history
-    fc -R .zsh_history
-}
 
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias updot="git add .zshrc .vimrc .tmux.conf .p10k.zsh .eslintrc .prettierrc .vim/coc-settings.json README.md -f"
-
-alias stpr=mkdir
-alias mongod="sudo mongod"
-# alias docker="sudo docker"
-alias vp="git push origin develop && git push origin main"
-
-alias gf="git flow"
-
-alias jeddals="cd ~/Dev/jeddals-site/"
-
-alias ars="cd ~/Dev/go/Arsenal"
-
-#  GoLang aliases
-alias gop="cd ~/Dev/go"
-alias gbo="go build ."
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
