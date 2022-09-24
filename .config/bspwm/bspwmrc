@@ -1,0 +1,46 @@
+#! /bin/sh
+
+# Launching applications
+feh --bg-fill /home/masterx/Pictures/wallpaper.jpg
+albert&
+# brave&
+# discord&
+picom&
+kitty&
+twmnd&
+numlockx&
+dockerd&
+librespot --device-type computer -n "Arch-Core" -u "jediknightxch@gmail.com" -p "77LaPrada!" --initial-volume 80 -b 320 -c ./.cache&
+bluetoothctl&
+/usr/lib/polkit-kde-authentication-agent-1 &
+
+# Monitor Config
+xrandr --output DP-4 --primary --mode 2560x1440 --rotate normal --rate 240 --output DP-2 --mode 3840x2160 --rotate normal --rate 60 --right-of DP-4 &
+xset r rate 270 160 &
+
+polybar&
+yakuake &
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+
+bspc monitor DP-4 -d Web Music Files Code Social
+bspc monitor DP-2 -d Video Display Desktop Desktop1 Desktop2
+
+#WM Config
+bspc config border_width        0
+bspc config window_gap          8
+bspc config split_ratio         0.60
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+bspc config auto_cancel         true
+bspc initial_polarity           second_child
+
+# Configuring workspaces
+bspc rule -a brave desktop='^1'
+bspc rule -a discord desktop='^5'
+bspc rule -a albert border=off layer=above
+bspc rule -a yakuake border=off layer=above
+bspc rule -a kitty desktop='^4'
+
+
