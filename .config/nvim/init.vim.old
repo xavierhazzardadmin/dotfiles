@@ -1,0 +1,74 @@
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+
+Plug 'vimsence/vimsence' 
+Plug 'preservim/NERDTree'
+" IDK
+Plug 'sheerun/vim-polyglot'
+"  Spelling for vim
+Plug 'rhysd/vim-grammarous'
+"  Conquer of Completion
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"  Shows each lines git status
+Plug 'airblade/vim-gitgutter'
+"  vim with tmux
+Plug 'christoomey/vim-tmux-navigator'
+"  Shows which files have been edited
+Plug 'Xuyuanp/nerdtree-git-plugin'
+"  Colorscheme
+Plug 'morhetz/gruvbox'
+"  fuzzy finding for easy access to files
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+"  Emmet for vim
+Plug 'mattn/emmet-vim'
+"  Plug 'ghifarit53/tokyonight-vim'
+"  airline to connect to powerline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'zxqfl/tabnine-vim'
+"  fuzzy finding
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+"  Starting message and options 
+Plug 'mhinz/vim-startify'
+"  IDK
+Plug 'vim-ctrlspace/vim-ctrlspace'
+"  NERDTree icons
+Plug 'ryanoasis/vim-devicons'
+"  I also don't know
+Plug 'Raimondi/delimitMate'
+"  Syntax highlighting for vim
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+"  Commenting for vim
+Plug 'tpope/vim-commentary'
+"  Auto add the other side to bracket
+Plug 'jiangmiao/auto-pairs'
+"  Syntax highlighting for JSX and TSX
+Plug 'maxmellon/vim-jsx-pretty'
+"  haven't worked out yet
+Plug 'mbbill/undotree'
+"  Easy tool for strings
+Plug 'tpope/vim-surround'
+"  Snippets
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
+"  Plugin for Git
+Plug 'tpope/vim-fugitive'
+"  Multiple cursors plugin
+Plug 'terryma/vim-multiple-cursors'
+"  Syntax highlighting for EJS files
+Plug 'nikvdp/ejs-syntax'
+"  Formatter for EJS and JST
+Plug 'briancollins/vim-jst'
+"  Narrow Rejoin
+Plug 'chrisbra/NrrwRgn'
+"  Auto Close for HTML and JSX
+Plug 'alvan/vim-closetag'
+" Go Plugin
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'vim-syntastic/syntastic'
+Plug 'preservim/tagbar'
+Plug 'dgryski/vim-godef'
+Plug 'Rigellute/shades-of-purple.vim'
+Plug 'fladson/vim-kitty'
+call plug#end()
